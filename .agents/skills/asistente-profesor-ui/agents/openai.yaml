@@ -1,0 +1,5 @@
+interface:
+  display_name: "Asistente Profesor UI"
+  short_description: "Construye interfaces coherentes para el asistente docente"
+  default_prompt: "Diseña o implementa esta interfaz respetando el sistema visual y los flujos de Aula Clara."
+

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aula Clara">
+  <rect width="64" height="64" rx="16" fill="#17324d"/>
+  <path d="M16 20.5 32 14l16 6.5L32 27l-16-6.5Z" fill="#f5e8cf"/>
+  <path d="M21 26v13c5.9 5.5 16.1 5.5 22 0V26l-11 4.5L21 26Z" fill="#d66b49"/>
+  <path d="M48 22v16" stroke="#f5e8cf" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="48" cy="41" r="3" fill="#f5e8cf"/>
+</svg>
+
