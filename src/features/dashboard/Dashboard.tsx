@@ -1,22 +1,16 @@
 import { useState } from 'react'
 import {
   Bell,
-  BookOpen,
-  CalendarDays,
   ChevronRight,
   ClipboardCheck,
   Clock3,
-  FileText,
-  GraduationCap,
-  LayoutDashboard,
   Menu,
-  MoreHorizontal,
   Plus,
   Search,
-  Settings,
   UsersRound,
   X
 } from 'lucide-react'
+import { WorkspaceSidebar } from '../../components/layout/WorkspaceSidebar'
 import { Button } from '../../components/ui/Button'
 
 type AttendanceStatus = 'Asistió' | 'Retardo' | 'No asistió'
@@ -54,15 +48,6 @@ const initialStudents: Array<{ name: string; id: string; status: AttendanceStatu
   { name: 'Fernanda López', id: '242A1114', status: 'Retardo' }
 ]
 
-const navItems = [
-  { label: 'Inicio', icon: LayoutDashboard, active: true },
-  { label: 'Materias y grupos', icon: BookOpen },
-  { label: 'Asistencia', icon: ClipboardCheck },
-  { label: 'Calificaciones', icon: GraduationCap },
-  { label: 'Planeación', icon: CalendarDays },
-  { label: 'Mis materiales', icon: FileText }
-]
-
 export function Dashboard() {
   const [attendanceOpen, setAttendanceOpen] = useState(false)
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
@@ -85,43 +70,7 @@ export function Dashboard() {
     <div className="app-frame">
       <a href="#contenido" className="skip-link">Saltar al contenido</a>
 
-      <aside className={`sidebar ${mobileNavOpen ? 'sidebar--open' : ''}`} aria-label="Navegación principal">
-        <div className="brand">
-          <img src="/logo.svg" alt="" className="brand__mark" />
-          <div>
-            <strong>Aula Clara</strong>
-            <span>Asistente docente</span>
-          </div>
-          <button className="sidebar__close" onClick={() => setMobileNavOpen(false)} aria-label="Cerrar menú">
-            <X size={20} />
-          </button>
-        </div>
-
-        <nav className="nav-list">
-          <p className="nav-caption">ESPACIO DE TRABAJO</p>
-          {navItems.map(({ label, icon: Icon, active }) => (
-            <button key={label} className={`nav-item ${active ? 'nav-item--active' : ''}`}>
-              <Icon size={19} strokeWidth={1.8} />
-              <span>{label}</span>
-            </button>
-          ))}
-        </nav>
-
-        <div className="sidebar__footer">
-          <button className="nav-item">
-            <Settings size={19} strokeWidth={1.8} />
-            <span>Configuración</span>
-          </button>
-          <div className="profile-mini">
-            <div className="avatar">MR</div>
-            <div>
-              <strong>Mariana Ruiz</strong>
-              <span>Profesora</span>
-            </div>
-            <MoreHorizontal size={18} />
-          </div>
-        </div>
-      </aside>
+      <WorkspaceSidebar mobileOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
 
       {mobileNavOpen && <button className="backdrop mobile-only" aria-label="Cerrar menú" onClick={() => setMobileNavOpen(false)} />}
 
@@ -287,4 +236,3 @@ export function Dashboard() {
     </div>
   )
 }
-
